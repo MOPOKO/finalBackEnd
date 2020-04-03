@@ -2,32 +2,50 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Customers</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 </head>
 <body>
 
-    <div>
-        <table>
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Surname</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr  th:if="${isEmpty}">
-                <h3 th:text="${ searchResult  + ' ' + 'Customers Not Found' }"></h3>
-            </tr>
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="bg-light">
+                <tr class="border-0">
+                    <th class="border-0">Name</th>
+                    <th class="border-0">Surname</th>
+                    <th class="border-0">Email</th>
+                    <th class="border-0">Job</th>
+                    <th class="border-0">Mobile Phone</th>
+                    <th class="border-0">City</th>
+                    <th class="border-0">Web Page</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  th:if="${isEmpty}">
+                    <h3>Not found</h3>
+                </tr>
 
-            <!--looping through organizations list-->
-            <tr th:each="customer : ${customers}">
-                <td th:text="${customer.firstName}"> Name </td>
-                <td th:text="${customer.lastName}"> LastName </td>
-           </tr>
-            <!--    end of looping     -->
-            </tbody>
-        </table>
+                <!--looping through organizations list-->
+                <tr th:each="customer : ${customers}">
+                    <td th:text="${customer.firstName}"> Name </td>
+                    <td th:text="${customer.lastName}"> LastName </td>
+                    <td th:text="${customer.emailAddress}"> LastName </td>
+                    <td th:text="${customer.jobTitle}"> LastName </td>
+                    <td th:text="${customer.mobilePhone}"> LastName </td>
+                    <td th:text="${customer.city}"> LastName </td>
+                    <td th:text="${customer.webPage}"> LastName </td>
+                    <td><a th:href="@{'/customers/delete/' + ${customer.id}}" class="btn btn-danger">Delete</a> </td>
+                </tr>
+                <!--    end of looping     -->
+                </tbody>
+            </table>
+            <a th:href="@{/customers/add}" type="button" class="btn btn-success">Add New Customer</a>
+        </div>
     </div>
+
 
 </body>
 </html>

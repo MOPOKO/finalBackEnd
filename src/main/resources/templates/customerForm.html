@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Customer</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <div class="container">
+        <form th:action="@{/customers/create}"
+              th:object="${customer}"
+              method="POST">
+            <div class="form-group">
+                <label for="firstName" class="text-dark font-bold" >First Name</label>
+                <input id="firstName" type="text" class="form-control"
+                       placeholder="first name ..."
+                       th:field="*{firstName}">
+            </div>
+            <div class="form-group">
+                <label for="lastName" class="text-dark font-bold" >Last Name</label>
+                <input id="lastName" type="text" class="form-control"
+                       placeholder="last name ..."
+                       th:field="*{lastName}"/>
+            </div>
+            <div class="form-group">
+                <label for="email" class="text-dark font-bold" >Email</label>
+                <input id="email" type="text" class="form-control"
+                       placeholder="email ..."
+                       th:field="*{emailAddress}"/>
+            </div>
+            <div class="form-group">
+                <label for="job" class="text-dark font-bold">Job</label>
+                <input id="job" type="text" class="form-control"
+                       placeholder="job ..."
+                       th:field="*{jobTitle}"/>
+            </div>
+            <div class="form-group">
+                <label for="mobile phone" class="text-dark font-bold" >Mobile Phone</label>
+                <input id="mobile phone" type="text" class="form-control"
+                       placeholder="mobile phone ..."
+                       th:field="*{mobilePhone}"/>
+            </div>
+            <div class="form-group">
+                <label for="city" class="text-dark font-bold" >City</label>
+                <input id="city" type="text" class="form-control"
+                       placeholder="city ..."
+                       th:field="*{city}"/>
+            </div><div class="form-group">
+            <label for="web page" class="text-dark font-bold" >Web Page</label>
+            <input id="web page" type="text" class="form-control"
+                   placeholder="web page ..."
+                   th:field="*{webPage}"/>
+            </div>
+            <button type="submit" class="btn btn-success">Create</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -23,25 +23,25 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq")
     private Long id;
 
-    @Column(name = "firstName")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "lastName")
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "jobTitle")
+    @Column(name = "job_title")
     private String jobTitle;
 
-    @Column(name = "emailAddress")
+    @Column(name = "email_address")
     private String emailAddress;
 
-    @Column(name = "mobilePhone")
+    @Column(name = "mobile_phone")
     private String mobilePhone;
 
     @Column(name = "city")
     private String city;
 
-    @Column(name = "webPage")
+    @Column(name = "web_page")
     private String webPage;
 
     public Long getId() {
